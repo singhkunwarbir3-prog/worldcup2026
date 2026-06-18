@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
 import { Bar } from "@/components/Bar";
-import { PREDICTIONS, MATCHES, POLLS } from "@/lib/wc-data";
-import { Brain, TrendingUp, Vote } from "lucide-react";
+import { PREDICTIONS, ALL_MATCHES, POLLS, getMatchStatus, formatMatchDate, formatMatchTime } from "@/lib/wc-data";
+import { Brain, TrendingUp, Vote, Clock } from "lucide-react";
 import { useState } from "react";
 
 export const Route = createFileRoute("/predictions")({
@@ -18,6 +18,9 @@ export const Route = createFileRoute("/predictions")({
 });
 
 function PredictionsPage() {
+  // Only show upcoming matches in the predictor
+  const upcomingMatches = ALL_MATCHES.filter((m) => getMatchStatus(m) === "upcoming" && m.hw != null);
+
   return (
     <SiteLayout>
       <section className="mx-auto max-w-7xl px-4 py-12">
@@ -48,11 +51,11 @@ function PredictionsPage() {
             <h2 className="text-xl font-black">Match Predictor</h2>
             <p className="mt-1 text-sm text-muted-foreground">AI win probability for every upcoming game.</p>
             <div className="mt-4 space-y-3">
-              {MATCHES.map((m) => (
-                <div key={m.home + m.away} className="rounded-xl border border-border bg-card p-4">
+              {upcomingMatches.slice(0, 8).map((m) => (
+                <div key={m.id} className="rounded-xl border border-border bg-card p-4">
                   <div className="flex items-center justify-between text-[11px] text-muted-foreground">
-                    <span className="rounded bg-secondary px-2 py-0.5">{m.stage}</span>
-                    <span>{m.date} · {m.time}</span>
+                    <span className="rounded bg-secondary px-2 py-0.5">Group {m.group}</span>
+                    <span className="flex items-center gap-1"><Clock className="h-3 w-3" />{formatMatchDate(m.kickoff)} · {formatMatchTime(m.kickoff)}</span>
                   </div>
                   <div className="mt-3 flex items-center justify-between text-sm font-bold">
                     <span className="flex items-center gap-1.5"><span className="text-xl">{m.hf}</span>{m.home}</span>

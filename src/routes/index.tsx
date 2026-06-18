@@ -1,9 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Trophy, Flame, Newspaper, TrendingUp, ArrowRight } from "lucide-react";
+import { Trophy, Flame, Newspaper, TrendingUp, ArrowRight, Radio, Clock, MapPin } from "lucide-react";
 import { SiteLayout } from "@/components/SiteLayout";
 import { Bar } from "@/components/Bar";
-import { PREDICTIONS, PLAYERS, NEWS, MATCHES, RESULTS } from "@/lib/wc-data";
+import { PREDICTIONS, PLAYERS, NEWS, ALL_MATCHES, getMatchStatus, getLiveMinute, getExpectedFinish, formatMatchDate, formatMatchTime } from "@/lib/wc-data";
+import type { Match } from "@/lib/wc-data";
 import heroImg from "@/assets/hero-trophy.jpg";
 
 export const Route = createFileRoute("/")({
@@ -65,8 +66,27 @@ function SectionHead({ title, subtitle, cta }: { title: string; subtitle?: strin
 }
 
 function Index() {
+  const [now, setNow] = useState(() => Date.now());
+  useEffect(() => {
+    const i = setInterval(() => setNow(Date.now()), 30000);
+    return () => clearInterval(i);
+  }, []);
+
   const top = PREDICTIONS[0];
   const scorers = [...PLAYERS].sort((a, b) => b.goals - a.goals).slice(0, 5);
+
+  // Split matches
+  const live: Match[] = [];
+  const upcoming: Match[] = [];
+  const finished: Match[] = [];
+  for (const m of ALL_MATCHES) {
+    const s = getMatchStatus(m);
+    if (s === "live") live.push(m);
+    else if (s === "upcoming") upcoming.push(m);
+    else finished.push(m);
+  }
+  finished.reverse();
+
   return (
     <SiteLayout>
       <section className="relative overflow-hidden">
@@ -99,7 +119,23 @@ function Index() {
         </div>
       </section>
 
-      <section className="mx-auto -mt-10 max-w-7xl px-4">
+      {/* ── LIVE MATCH CENTER ── */}
+      {live.length > 0 && (
+        <section className="mx-auto -mt-8 max-w-7xl px-4">
+          <div className="flex items-center gap-2 mb-4">
+            <span className="relative flex h-3 w-3">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-500 opacity-75" />
+              <span className="relative inline-flex h-3 w-3 rounded-full bg-red-500" />
+            </span>
+            <h2 className="text-xl font-black">Live Match Center</h2>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2">
+            {live.map((m) => <HomeLiveCard key={m.id} m={m} />)}
+          </div>
+        </section>
+      )}
+
+      <section className={`mx-auto ${live.length > 0 ? "mt-8" : "-mt-10"} max-w-7xl px-4`}>
         <div className="grid gap-4 md:grid-cols-3">
           <div className="rounded-2xl border border-gold/30 bg-card p-6 card-glow">
             <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-gold">
@@ -146,52 +182,64 @@ function Index() {
         </div>
       </section>
 
+      {/* ── MATCH PREDICTOR (upcoming only) ── */}
       <section className="mx-auto mt-16 max-w-7xl px-4">
         <SectionHead title="Match Predictor" subtitle="AI win probabilities for upcoming fixtures" cta={{ to: "/fixtures", label: "All fixtures" }} />
         <div className="mt-6 grid gap-4 md:grid-cols-2">
-          {MATCHES.slice(0, 4).map((m) => (
-            <div key={m.home + m.away} className="rounded-xl border border-border bg-card p-5">
+          {upcoming.slice(0, 4).map((m) => (
+            <div key={m.id} className="rounded-xl border border-border bg-card p-5">
               <div className="flex items-center justify-between text-xs text-muted-foreground">
-                <span className="rounded-md bg-secondary px-2 py-0.5">{m.stage}</span>
-                <span>{m.date} · {m.time}</span>
+                <span className="rounded-md bg-secondary px-2 py-0.5">Group {m.group}</span>
+                <span className="flex items-center gap-1"><Clock className="h-3 w-3" />{formatMatchDate(m.kickoff)} · {formatMatchTime(m.kickoff)}</span>
               </div>
               <div className="mt-4 flex items-center justify-between">
                 <div className="flex items-center gap-2 text-base font-bold"><span className="text-2xl">{m.hf}</span>{m.home}</div>
                 <span className="text-xs text-muted-foreground">vs</span>
                 <div className="flex items-center gap-2 text-base font-bold">{m.away}<span className="text-2xl">{m.af}</span></div>
               </div>
-              <div className="mt-4 flex h-2 overflow-hidden rounded-full bg-secondary">
-                <div className="gradient-gold" style={{ width: `${m.hw}%` }} />
-                <div className="bg-muted-foreground/40" style={{ width: `${m.d}%` }} />
-                <div className="bg-destructive/70" style={{ width: `${m.aw}%` }} />
-              </div>
-              <div className="mt-2 flex justify-between text-[11px] text-muted-foreground">
-                <span className="font-semibold text-gold">{m.hw}% Win</span>
-                <span>{m.d}% Draw</span>
-                <span className="font-semibold text-destructive">{m.aw}% Win</span>
-              </div>
+              {m.hw != null && (
+                <>
+                  <div className="mt-4 flex h-2 overflow-hidden rounded-full bg-secondary">
+                    <div className="gradient-gold" style={{ width: `${m.hw}%` }} />
+                    <div className="bg-muted-foreground/40" style={{ width: `${m.d}%` }} />
+                    <div className="bg-destructive/70" style={{ width: `${m.aw}%` }} />
+                  </div>
+                  <div className="mt-2 flex justify-between text-[11px] text-muted-foreground">
+                    <span className="font-semibold text-gold">{m.hw}% Win</span>
+                    <span>{m.d}% Draw</span>
+                    <span className="font-semibold text-destructive">{m.aw}% Win</span>
+                  </div>
+                </>
+              )}
             </div>
           ))}
         </div>
       </section>
 
+      {/* ── LATEST RESULTS + NEWS ── */}
       <section className="mx-auto mt-16 max-w-7xl px-4">
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2">
-            <SectionHead title="Latest Results" subtitle="Most recent match scores" />
+            <SectionHead title="Latest Results" subtitle="Most recent match scores" cta={{ to: "/fixtures", label: "All results" }} />
             <div className="mt-4 divide-y divide-border rounded-xl border border-border bg-card">
-              {RESULTS.map((r) => (
-                <div key={r.home + r.away} className="grid grid-cols-[1fr_auto_1fr] items-center gap-4 px-5 py-4">
-                  <div className="flex items-center justify-end gap-3">
-                    <span className="text-right text-sm font-semibold">{r.home}</span>
-                    <span className="text-xl">{r.hf}</span>
+              {finished.slice(0, 6).map((r) => (
+                <div key={r.id} className="px-5 py-4">
+                  <div className="flex items-center justify-between text-[10px] uppercase tracking-widest text-muted-foreground mb-2">
+                    <span>Group {r.group} · {formatMatchDate(r.kickoff)}</span>
+                    <span className="font-bold text-gold">FT</span>
                   </div>
-                  <div className="rounded-md bg-secondary px-3 py-1 text-sm font-bold tabular-nums">
-                    {r.hs} <span className="text-muted-foreground">–</span> {r.as}
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <span className="text-xl">{r.af}</span>
-                    <span className="text-sm font-semibold">{r.away}</span>
+                  <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-4">
+                    <div className="flex items-center justify-end gap-3">
+                      <span className="text-right text-sm font-semibold">{r.home}</span>
+                      <span className="text-xl">{r.hf}</span>
+                    </div>
+                    <div className="rounded-md bg-secondary px-3 py-1 text-sm font-bold tabular-nums">
+                      {r.hs} <span className="text-muted-foreground">–</span> {r.as}
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <span className="text-xl">{r.af}</span>
+                      <span className="text-sm font-semibold">{r.away}</span>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -231,5 +279,52 @@ function Index() {
         </div>
       </section>
     </SiteLayout>
+  );
+}
+
+/** Live match card for the homepage */
+function HomeLiveCard({ m }: { m: Match }) {
+  const [tick, setTick] = useState(() => Date.now());
+  useEffect(() => {
+    const i = setInterval(() => setTick(Date.now()), 1000);
+    return () => clearInterval(i);
+  }, []);
+
+  const minute = getLiveMinute(m.kickoff);
+  const half = minute <= 45 ? "1st Half" : minute <= 90 ? "2nd Half" : "Added Time";
+  const expectedFinish = getExpectedFinish(m.kickoff);
+
+  return (
+    <div className="relative overflow-hidden rounded-2xl border border-red-500/40 bg-card p-5">
+      <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 to-transparent" />
+      <div className="relative">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-500 opacity-75" />
+              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-red-500" />
+            </span>
+            <span className="text-[11px] font-bold uppercase tracking-widest text-red-400">Live · {half}</span>
+          </div>
+          <span className="rounded-md bg-red-500/15 px-2 py-0.5 text-sm font-black tabular-nums text-red-400">{minute}'</span>
+        </div>
+        <div className="mt-1 text-[10px] uppercase tracking-widest text-muted-foreground">Group {m.group}</div>
+        <div className="mt-4 grid grid-cols-[1fr_auto_1fr] items-center gap-3">
+          <div className="flex items-center justify-end gap-2">
+            <span className="text-sm font-bold">{m.home}</span>
+            <span className="text-3xl">{m.hf}</span>
+          </div>
+          <span className="rounded-lg bg-secondary px-4 py-2 text-xl font-black tabular-nums">{m.hs} – {m.as}</span>
+          <div className="flex items-center gap-2">
+            <span className="text-3xl">{m.af}</span>
+            <span className="text-sm font-bold">{m.away}</span>
+          </div>
+        </div>
+        <div className="mt-3 flex items-center justify-between text-[10px] text-muted-foreground">
+          <span className="flex items-center gap-1"><MapPin className="h-3 w-3" />{m.venue}</span>
+          <span className="flex items-center gap-1"><Clock className="h-3 w-3" />Ends ~{expectedFinish}</span>
+        </div>
+      </div>
+    </div>
   );
 }
