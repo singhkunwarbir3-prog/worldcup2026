@@ -1,15 +1,15 @@
-﻿export type Group = { name: string; teams: { code: string; flag: string; name: string; p: number; w: number; d: number; l: number; gf: number; ga: number; pts: number }[] };
+export type Group = { name: string; teams: { code: string; flag: string; name: string; p: number; w: number; d: number; l: number; gf: number; ga: number; pts: number }[] };
 
 export const GROUPS: Group[] = [
   { name: "A", teams: [
     { code: "MEX", flag: "🇲🇽", name: "Mexico", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 },
     { code: "ZAF", flag: "🇿🇦", name: "South Africa", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 },
-    { code: "KOR", flag: "🇰🇷", name: "South Korea", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 },
-    { code: "CZE", flag: "🇨🇿", name: "Czechia", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 },
+    { code: "KOR", flag: "🇰🇷", name: "South Korea", p: 1, w: 1, d: 0, l: 0, gf: 2, ga: 1, pts: 3 },
+    { code: "CZE", flag: "🇨🇿", name: "Czechia", p: 1, w: 0, d: 0, l: 1, gf: 1, ga: 2, pts: 0 },
   ]},
   { name: "B", teams: [
-    { code: "CAN", flag: "🇨🇦", name: "Canada", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 },
-    { code: "BIH", flag: "🇧🇦", name: "Bosnia and Herzegovina", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 },
+    { code: "CAN", flag: "🇨🇦", name: "Canada", p: 1, w: 0, d: 1, l: 0, gf: 1, ga: 1, pts: 1 },
+    { code: "BIH", flag: "🇧🇦", name: "Bosnia and Herzegovina", p: 1, w: 0, d: 1, l: 0, gf: 1, ga: 1, pts: 1 },
     { code: "QAT", flag: "🇶🇦", name: "Qatar", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 },
     { code: "CHE", flag: "🇨🇭", name: "Switzerland", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 },
   ]},
@@ -26,8 +26,8 @@ export const GROUPS: Group[] = [
     { code: "TUR", flag: "🇹🇷", name: "Türkiye", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 },
   ]},
   { name: "E", teams: [
-    { code: "DEU", flag: "🇩🇪", name: "Germany", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 },
-    { code: "CUW", flag: "🇨🇼", name: "Curaçao", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 },
+    { code: "DEU", flag: "🇩🇪", name: "Germany", p: 1, w: 1, d: 0, l: 0, gf: 7, ga: 1, pts: 3 },
+    { code: "CUW", flag: "🇨🇼", name: "Curaçao", p: 1, w: 0, d: 0, l: 1, gf: 1, ga: 7, pts: 0 },
     { code: "CIV", flag: "🇨🇮", name: "Ivory Coast", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 },
     { code: "ECU", flag: "🇪🇨", name: "Ecuador", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 },
   ]},
@@ -38,8 +38,8 @@ export const GROUPS: Group[] = [
     { code: "TUN", flag: "🇹🇳", name: "Tunisia", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 },
   ]},
   { name: "G", teams: [
-    { code: "BEL", flag: "🇧🇪", name: "Belgium", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 },
-    { code: "EGY", flag: "🇪🇬", name: "Egypt", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 },
+    { code: "BEL", flag: "🇧🇪", name: "Belgium", p: 1, w: 0, d: 1, l: 0, gf: 1, ga: 1, pts: 1 },
+    { code: "EGY", flag: "🇪🇬", name: "Egypt", p: 1, w: 0, d: 1, l: 0, gf: 1, ga: 1, pts: 1 },
     { code: "IRN", flag: "🇮🇷", name: "Iran", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 },
     { code: "NZL", flag: "🇳🇿", name: "New Zealand", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 },
   ]},
@@ -50,16 +50,16 @@ export const GROUPS: Group[] = [
     { code: "URY", flag: "🇺🇾", name: "Uruguay", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 },
   ]},
   { name: "I", teams: [
-    { code: "FRA", flag: "🇫🇷", name: "France", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 },
-    { code: "SEN", flag: "🇸🇳", name: "Senegal", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 },
-    { code: "IRQ", flag: "🇮🇶", name: "Iraq", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 },
-    { code: "NOR", flag: "🇳🇴", name: "Norway", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 },
+    { code: "FRA", flag: "🇫🇷", name: "France", p: 1, w: 1, d: 0, l: 0, gf: 3, ga: 1, pts: 3 },
+    { code: "NOR", flag: "🇳🇴", name: "Norway", p: 1, w: 1, d: 0, l: 0, gf: 4, ga: 1, pts: 3 },
+    { code: "SEN", flag: "🇸🇳", name: "Senegal", p: 1, w: 0, d: 0, l: 1, gf: 1, ga: 3, pts: 0 },
+    { code: "IRQ", flag: "🇮🇶", name: "Iraq", p: 1, w: 0, d: 0, l: 1, gf: 1, ga: 4, pts: 0 },
   ]},
   { name: "J", teams: [
+    { code: "AUT", flag: "🇦🇹", name: "Austria", p: 1, w: 1, d: 0, l: 0, gf: 3, ga: 1, pts: 3 },
+    { code: "JOR", flag: "🇯🇴", name: "Jordan", p: 1, w: 0, d: 0, l: 1, gf: 1, ga: 3, pts: 0 },
     { code: "ARG", flag: "🇦🇷", name: "Argentina", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 },
     { code: "DZA", flag: "🇩🇿", name: "Algeria", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 },
-    { code: "AUT", flag: "🇦🇹", name: "Austria", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 },
-    { code: "JOR", flag: "🇯🇴", name: "Jordan", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 },
   ]},
   { name: "K", teams: [
     { code: "PRT", flag: "🇵🇹", name: "Portugal", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 },
@@ -68,8 +68,8 @@ export const GROUPS: Group[] = [
     { code: "COL", flag: "🇨🇴", name: "Colombia", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 },
   ]},
   { name: "L", teams: [
-    { code: "ENG", flag: "🏴", name: "England", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 },
-    { code: "CRO", flag: "🇭🇷", name: "Croatia", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 },
+    { code: "ENG", flag: "🏴", name: "England", p: 1, w: 1, d: 0, l: 0, gf: 4, ga: 2, pts: 3 },
+    { code: "CRO", flag: "🇭🇷", name: "Croatia", p: 1, w: 0, d: 0, l: 1, gf: 2, ga: 4, pts: 0 },
     { code: "GHA", flag: "🇬🇭", name: "Ghana", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 },
     { code: "PAN", flag: "🇵🇦", name: "Panama", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 },
   ]},
@@ -98,19 +98,22 @@ export const PLAYERS = [
 ];
 
 export const MATCHES = [
-  { home: "Spain", hf: "🇪🇸", away: "France", af: "🇫🇷", date: "Jun 22", time: "20:00", hw: 42, d: 28, aw: 30, stage: "Group B" },
-  { home: "Argentina", hf: "🇦🇷", away: "Mexico", af: "🇲🇽", date: "Jun 23", time: "17:00", hw: 55, d: 25, aw: 20, stage: "Group A" },
-  { home: "Brazil", hf: "🇧🇷", away: "Germany", af: "🇩🇪", date: "Jun 24", time: "20:00", hw: 47, d: 26, aw: 27, stage: "Group D" },
-  { home: "England", hf: "🏴", away: "Netherlands", af: "🇳🇱", date: "Jun 25", time: "18:00", hw: 50, d: 27, aw: 23, stage: "Group E" },
-  { home: "Portugal", hf: "🇵🇹", away: "Croatia", af: "🇭🇷", date: "Jun 26", time: "20:00", hw: 56, d: 24, aw: 20, stage: "Group B" },
+  { home: "Spain", hf: "🇪🇸", away: "France", af: "🇫🇷", date: "Jun 22", time: "20:00", hw: 42, d: 28, aw: 30, stage: "Group H" },
+  { home: "Argentina", hf: "🇦🇷", away: "Mexico", af: "🇲🇽", date: "Jun 23", time: "17:00", hw: 55, d: 25, aw: 20, stage: "Group J" },
+  { home: "Brazil", hf: "🇧🇷", away: "Germany", af: "🇩🇪", date: "Jun 24", time: "20:00", hw: 47, d: 26, aw: 27, stage: "Group C" },
+  { home: "England", hf: "🏴", away: "Netherlands", af: "🇳🇱", date: "Jun 25", time: "18:00", hw: 50, d: 27, aw: 23, stage: "Group L" },
+  { home: "Portugal", hf: "🇵🇹", away: "Croatia", af: "🇭🇷", date: "Jun 26", time: "20:00", hw: 56, d: 24, aw: 20, stage: "Group K" },
 ];
 
 export const RESULTS = [
-  { home: "Spain", hf: "🇪🇸", hs: 3, away: "Croatia", af: "🇭🇷", as: 0, stage: "Group B" },
-  { home: "France", hf: "🇫🇷", hs: 2, away: "Canada", af: "🇨🇦", as: 1, stage: "Group C" },
-  { home: "Brazil", hf: "🇧🇷", hs: 3, away: "South Korea", af: "🇰🇷", as: 0, stage: "Group D" },
-  { home: "England", hf: "🏴", hs: 4, away: "Australia", af: "🇦🇺", as: 0, stage: "Group E" },
-  { home: "Argentina", hf: "🇦🇷", hs: 2, away: "Norway", af: "🇳🇴", as: 1, stage: "Group A" },
+  { home: "Germany", hf: "🇩🇪", hs: 7, away: "Curaçao", af: "🇨🇼", as: 1, stage: "Group E" },
+  { home: "France", hf: "🇫🇷", hs: 3, away: "Senegal", af: "🇸🇳", as: 1, stage: "Group I" },
+  { home: "England", hf: "🏴", hs: 4, away: "Croatia", af: "🇭🇷", as: 2, stage: "Group L" },
+  { home: "Norway", hf: "🇳🇴", hs: 4, away: "Iraq", af: "🇮🇶", as: 1, stage: "Group I" },
+  { home: "Austria", hf: "🇦🇹", hs: 3, away: "Jordan", af: "🇯🇴", as: 1, stage: "Group J" },
+  { home: "Belgium", hf: "🇧🇪", hs: 1, away: "Egypt", af: "🇪🇬", as: 1, stage: "Group G" },
+  { home: "Bosnia and Herzegovina", hf: "🇧🇦", hs: 1, away: "Canada", af: "🇨🇦", as: 1, stage: "Group B" },
+  { home: "Czechia", hf: "🇨🇿", hs: 1, away: "South Korea", af: "🇰🇷", as: 2, stage: "Group A" },
 ];
 
 export const NEWS = [
