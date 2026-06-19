@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>World Cup Hub 2026 — Every Match. Every Stat. Every Prediction.</title>
+<meta name="description" content="World Cup 2026 hub: live group standings, player stats, AI-powered predictions, fixtures, results and fan polls." />
+<style>
+  :root{--navy:#0A1931;--navy2:#0f2447;--gold:#F5C518;--white:#fff;--muted:#9bb0d0;--line:rgba(255,255,255,.1)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--navy);color:var(--white);line-height:1.5}
+  a{color:inherit;text-decoration:none}
+  header{position:sticky;top:0;background:rgba(10,25,49,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);z-index:50}
+  .nav{max-width:1200px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .logo{font-weight:900;font-size:20px;color:var(--gold);letter-spacing:.5px}
+  .logo span{color:#fff}
+  nav ul{display:flex;gap:22px;list-style:none;flex-wrap:wrap}
+  nav a{color:var(--muted);font-weight:500;font-size:14px}
+  nav a:hover{color:var(--gold)}
+  .wrap{max-width:1200px;margin:0 auto;padding:48px 24px}
+  .hero{background:linear-gradient(135deg,#0A1931 0%,#0f2447 60%,#1a3a6e 100%);padding:80px 24px;text-align:center;border-bottom:2px solid var(--gold)}
+  .hero h1{font-size:clamp(2rem,5vw,3.75rem);font-weight:900;line-height:1.1;margin-bottom:18px}
+  .hero h1 em{color:var(--gold);font-style:normal}
+  .hero p{color:var(--muted);font-size:18px;max-width:680px;margin:0 auto 28px}
+  .countdown{display:inline-flex;gap:16px;background:rgba(245,197,24,.1);border:1px solid var(--gold);padding:18px 26px;border-radius:12px;margin-top:8px}
+  .countdown div{text-align:center;min-width:60px}
+  .countdown b{display:block;font-size:28px;color:var(--gold);font-weight:900}
+  .countdown small{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:1px}
+  h2{font-size:28px;font-weight:800;margin-bottom:24px;display:flex;align-items:center;gap:10px}
+  h2::before{content:"";width:4px;height:28px;background:var(--gold);border-radius:2px}
+  section{margin-bottom:64px}
+  .card{background:var(--navy2);border:1px solid var(--line);border-radius:12px;padding:20px}
+  .grid{display:grid;gap:16px}
+  .g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+  .g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+  .g4{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th,td{padding:10px 8px;text-align:left;border-bottom:1px solid var(--line)}
+  th{color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.5px}
+  td.num{text-align:right;font-variant-numeric:tabular-nums}
+  .group-title{color:var(--gold);font-weight:800;margin-bottom:10px;font-size:18px}
+  .bar{height:8px;background:rgba(255,255,255,.08);border-radius:4px;overflow:hidden;margin-top:6px}
+  .bar>i{display:block;height:100%;background:var(--gold)}
+  .pill{display:inline-block;padding:3px 10px;border-radius:99px;background:rgba(245,197,24,.15);color:var(--gold);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+  .news-item{display:flex;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+  .news-item:last-child{border-bottom:0}
+  .news-item small{color:var(--muted);white-space:nowrap;font-size:12px}
+  .match{display:flex;justify-content:space-between;align-items:center;padding:14px;border-bottom:1px solid var(--line);font-size:14px}
+  .match:last-child{border-bottom:0}
+  .score{font-weight:900;color:var(--gold);font-size:18px}
+  footer{border-top:1px solid var(--line);padding:32px 24px;text-align:center;color:var(--muted);font-size:13px;margin-top:48px}
+  footer b{color:var(--gold)}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <div class="logo">⚽ WC HUB <span>2026</span></div>
+    <nav><ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#groups">Groups</a></li>
+      <li><a href="#players">Players</a></li>
+      <li><a href="#predictions">Predictions</a></li>
+      <li><a href="#fixtures">Fixtures</a></li>
+      <li><a href="#polls">Polls</a></li>
+    </ul></nav>
+  </div>
+</header>
+<section id="home" class="hero">
+  <h1>World Cup <em>2026</em><br/>Hub</h1>
+  <p>Every Match. Every Stat. Every Prediction. Live standings, player stats and AI-powered win percentages for the biggest tournament on Earth.</p>
+  <div class="countdown" id="cd">
+    <div><b id="d">--</b><small>Days</small></div>
+    <div><b id="h">--</b><small>Hours</small></div>
+    <div><b id="m">--</b><small>Mins</small></div>
+    <div><b id="s">--</b><small>Secs</small></div>
+  </div>
+</section>
+<div class="wrap">
+<section><h2>Latest News</h2><div class="card" id="news"></div></section>
+<section id="groups"><h2>Group Standings</h2><div class="grid g2" id="groups-grid"></div></section>
+<section id="players"><h2>Top Players</h2>
+  <div class="card"><table id="players-tbl">
+    <thead><tr><th>Player</th><th>Country</th><th class="num">G</th><th class="num">A</th><th class="num">MP</th><th class="num">Min</th><th class="num">Shots</th><th class="num">Pass %</th></tr></thead>
+    <tbody></tbody>
+  </table></div>
+</section>
+<section id="predictions"><h2>AI Win Predictions</h2>
+  <div class="card" id="preds"></div>
+</section>
+<section id="fixtures"><h2>Upcoming Fixtures</h2><div class="card" id="fix"></div></section>
+<section><h2>Recent Results</h2><div class="card" id="res"></div></section>
+<section id="polls"><h2>Fan Polls</h2><div class="grid g3" id="polls-grid"></div></section>
+</div>
+<footer>
+  <b>World Cup Hub 2026</b> · Every Match. Every Stat. Every Prediction.<br/>
+  Unofficial fan site. Stats and predictions are illustrative.
+</footer>
+<script>
+const GROUPS=[
+ {n:"A",t:[["🇲🇽","Mexico",2,1,1,0,4,2,4],["🇦🇷","Argentina",2,1,1,0,3,1,4],["🇳🇴","Norway",2,0,1,1,1,3,1],["🇯🇵","Japan",2,0,1,1,1,3,1]]},
+ {n:"B",t:[["🇪🇸","Spain",2,2,0,0,6,1,6],["🇵🇹","Portugal",2,1,0,1,3,2,3],["🇭🇷","Croatia",2,1,0,1,2,3,3],["🇲🇦","Morocco",2,0,0,2,1,6,0]]},
+ {n:"C",t:[["🇨🇦","Canada",2,1,1,0,3,2,4],["🇫🇷","France",2,1,1,0,4,2,4],["🇧🇪","Belgium",2,0,2,0,2,2,2],["🇪🇬","Egypt",2,0,0,2,1,4,0]]},
+ {n:"D",t:[["🇧🇷","Brazil",2,2,0,0,5,1,6],["🇩🇪","Germany",2,1,0,1,3,2,3],["🇺🇾","Uruguay",2,1,0,1,2,3,3],["🇰🇷","South Korea",2,0,0,2,1,5,0]]},
+ {n:"E",t:[["🏴","England",2,2,0,0,5,0,6],["🇳🇱","Netherlands",2,1,0,1,3,2,3],["🇸🇳","Senegal",2,1,0,1,2,3,3],["🇦🇺","Australia",2,0,0,2,0,5,0]]},
+ {n:"F",t:[["🇮🇹","Italy",2,1,1,0,3,1,4],["🇨🇴","Colombia",2,1,1,0,4,2,4],["🇨🇭","Switzerland",2,0,1,1,1,2,1],["🇬🇭","Ghana",2,0,1,1,1,4,1]]},
+ {n:"G",t:[["🇺🇸","USA",2,2,0,0,4,1,6],["🇩🇰","Denmark",2,1,0,1,3,2,3],["🇪🇨","Ecuador",2,1,0,1,2,2,3],["🇹🇳","Tunisia",2,0,0,2,1,5,0]]},
+ {n:"H",t:[["🇨🇱","Chile",2,1,1,0,3,1,4],["🇵🇱","Poland",2,1,0,1,2,2,3],["🇳🇬","Nigeria",2,1,0,1,2,2,3],["🇮🇷","Iran",2,0,1,1,1,3,1]]},
+];
+const PREDS=[["🇪🇸","Spain",16],["🇫🇷","France",13],["🏴","England",11],["🇦🇷","Argentina",10],["🇵🇹","Portugal",7],["🇧🇷","Brazil",6],["🇩🇪","Germany",6],["🇳🇱","Netherlands",4]];
+const PLAYERS=[["Kylian Mbappé","🇫🇷","France",5,3,4,360,18,92],["Jude Bellingham","🏴","England",4,4,4,360,14,89],["Vinícius Júnior","🇧🇷","Brazil",4,2,4,340,19,84],["Lamine Yamal","🇪🇸","Spain",3,5,4,355,12,91],["Lionel Messi","🇦🇷","Argentina",3,3,4,320,11,90],["Erling Haaland","🇳🇴","Norway",3,1,3,270,16,78],["Cristiano Ronaldo","🇵🇹","Portugal",3,0,3,270,17,80],["Florian Wirtz","🇩🇪","Germany",2,4,3,265,9,93]];
+const FIX=[["🇪🇸","Spain","🇫🇷","France","Jun 22","20:00","Group B"],["🇦🇷","Argentina","🇲🇽","Mexico","Jun 23","17:00","Group A"],["🇧🇷","Brazil","🇩🇪","Germany","Jun 24","20:00","Group D"],["🏴","England","🇳🇱","Netherlands","Jun 25","18:00","Group E"],["🇵🇹","Portugal","🇭🇷","Croatia","Jun 26","20:00","Group B"]];
+const RES=[["🇪🇸","Spain",3,"🇭🇷","Croatia",0,"Group B"],["🇫🇷","France",2,"🇨🇦","Canada",1,"Group C"],["🇧🇷","Brazil",3,"🇰🇷","South Korea",0,"Group D"],["🏴","England",4,"🇦🇺","Australia",0,"Group E"],["🇦🇷","Argentina",2,"🇳🇴","Norway",1,"Group A"]];
+const NEWS=[["Spain dismantle Croatia 3-0 in opener","Match","2h ago"],["Mbappé hits hat-trick to send France top of Group C","Player","5h ago"],["AI model: Spain now 16% favorite to lift trophy","Prediction","8h ago"],["Lamine Yamal becomes youngest WC assist leader","Record","1d ago"]];
+const POLLS=[["Who will win the World Cup?",[["Spain 🇪🇸",28],["France 🇫🇷",22],["Argentina 🇦🇷",19],["Brazil 🇧🇷",15],["England 🏴",11],["Other",5]]],["Who deserves the Golden Ball?",[["Jude Bellingham",31],["Kylian Mbappé",27],["Lamine Yamal",24],["Vinícius Júnior",18]]],["Biggest surprise team?",[["Canada 🇨🇦",34],["Morocco 🇲🇦",26],["Senegal 🇸🇳",22],["Ecuador 🇪🇨",18]]]];
+document.getElementById("news").innerHTML=NEWS.map(([t,tag,time])=>`<div class="news-item"><div><span class="pill">${tag}</span> &nbsp;${t}</div><small>${time}</small></div>`).join("");
+document.getElementById("groups-grid").innerHTML=GROUPS.map(g=>{
+  const sorted=[...g.t].sort((a,b)=>b[8]-a[8]||(b[6]-b[7])-(a[6]-a[7]));
+  return `<div class="card"><div class="group-title">Group ${g.n}</div><table><thead><tr><th>Team</th><th class="num">P</th><th class="num">W</th><th class="num">D</th><th class="num">L</th><th class="num">GD</th><th class="num">Pts</th></tr></thead><tbody>${sorted.map(([f,n,p,w,d,l,gf,ga,pts])=>`<tr><td>${f} ${n}</td><td class="num">${p}</td><td class="num">${w}</td><td class="num">${d}</td><td class="num">${l}</td><td class="num">${gf-ga>0?'+':''}${gf-ga}</td><td class="num"><b style="color:var(--gold)">${pts}</b></td></tr>`).join("")}</tbody></table></div>`;
+}).join("");
+document.querySelector("#players-tbl tbody").innerHTML=PLAYERS.map(([n,f,c,g,a,mp,min,sh,pa])=>`<tr><td><b>${n}</b></td><td>${f} ${c}</td><td class="num">${g}</td><td class="num">${a}</td><td class="num">${mp}</td><td class="num">${min}</td><td class="num">${sh}</td><td class="num">${pa}%</td></tr>`).join("");
+document.getElementById("preds").innerHTML=PREDS.map(([f,t,c])=>`<div style="margin-bottom:14px"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span>${f} <b>${t}</b></span><span style="color:var(--gold);font-weight:800">${c}%</span></div><div class="bar"><i style="width:${c*5}%"></i></div></div>`).join("");
+document.getElementById("fix").innerHTML=FIX.map(([hf,h,af,a,d,t,s])=>`<div class="match"><span class="pill">${s}</span><span style="flex:1;text-align:right">${hf} ${h}</span><span style="color:var(--muted);padding:0 14px">vs</span><span style="flex:1">${af} ${a}</span><small style="color:var(--muted)">${d} · ${t}</small></div>`).join("");
+document.getElementById("res").innerHTML=RES.map(([hf,h,hs,af,a,as,s])=>`<div class="match"><span class="pill">${s}</span><span style="flex:1;text-align:right">${hf} ${h}</span><span class="score">${hs} - ${as}</span><span style="flex:1">${af} ${a}</span></div>`).join("");
+document.getElementById("polls-grid").innerHTML=POLLS.map(([q,opts])=>{const tot=opts.reduce((s,[,v])=>s+v,0);return `<div class="card"><div style="font-weight:700;margin-bottom:14px">${q}</div>${opts.map(([l,v])=>{const p=Math.round(v/tot*100);return `<div style="margin-bottom:10px"><div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:3px"><span>${l}</span><span style="color:var(--gold)">${p}%</span></div><div class="bar"><i style="width:${p}%"></i></div></div>`}).join("")}</div>`}).join("");
+// Countdown to final: July 19, 2026
+const target=new Date("2026-07-19T20:00:00Z").getTime();
+function tick(){const n=Date.now(),diff=Math.max(0,target-n);const d=Math.floor(diff/864e5),h=Math.floor(diff/36e5)%24,m=Math.floor(diff/6e4)%60,s=Math.floor(diff/1e3)%60;document.getElementById("d").textContent=d;document.getElementById("h").textContent=h;document.getElementById("m").textContent=m;document.getElementById("s").textContent=s}
+tick();setInterval(tick,1000);
+</script>
+</body>
+</html>
