@@ -114,9 +114,9 @@ export const GROUPS: Group[] = [
   ]},
   { name: "H", teams: [
     { code: "ESP", flag: "🇪🇸", name: "Spain", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 },
-    { code: "CPV", flag: "🇨🇻", name: "Cape Verde", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 },
+    { code: "CPV", flag: "🇨🇻", name: "Cape Verde", p: 0, w: 1, d: 0, l: 0, gf: 1, ga: 0, pts: 0 },
     { code: "SAU", flag: "🇸🇦", name: "Saudi Arabia", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 },
-    { code: "URY", flag: "🇺🇾", name: "Uruguay", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 },
+    { code: "URY", flag: "🇺🇾", name: "Uruguay", p: 0, w: 1, d: 0, l: 0, gf: 2, ga: 0, pts: 0 },
   ]},
   { name: "I", teams: [
     { code: "FRA", flag: "🇫🇷", name: "France", p: 1, w: 1, d: 0, l: 0, gf: 3, ga: 1, pts: 3 },
@@ -171,41 +171,41 @@ export const ALL_MATCHES: Match[] = [
   { id: 8, home: "France", hf: "🇫🇷", away: "Senegal", af: "🇸🇳", kickoff: "2026-06-16T17:00:00-04:00", venue: "MetLife Stadium, New Jersey", group: "I", status: "finished", hs: 3, as: 1, minute: 90 },
 
   // ── Matchday 7 – Jun 17 (TODAY) ──
-  { id: 9, home: "Portugal", hf: "🇵🇹", away: "DR Congo", af: "🇨🇩", kickoff: "2026-06-17T13:00:00-04:00", venue: "NRG Stadium, Houston", group: "K", status: "finished", hs: 3, as: 0, minute: 90 },
+  { id: 9, home: "Portugal", hf: "🇵🇹", away: "DR Congo", af: "🇨🇩", kickoff: "2026-06-17T13:00:00-04:00", venue: "NRG Stadium, Houston", group: "K", status: "finished", hs: 1, as: 1, minute: 90 },
   { id: 10, home: "England", hf: "🏴", away: "Croatia", af: "🇭🇷", kickoff: "2026-06-17T16:00:00-04:00", venue: "AT&T Stadium, Dallas", group: "L", status: "finished", hs: 4, as: 2, minute: 90 },
   { id: 11, home: "Austria", hf: "🇦🇹", away: "Jordan", af: "🇯🇴", kickoff: "2026-06-17T16:00:00-04:00", venue: "BMO Field, Toronto", group: "J", status: "finished", hs: 3, as: 1, minute: 90 },
   { id: 12, home: "Ghana", hf: "🇬🇭", away: "Panama", af: "🇵🇦", kickoff: "2026-06-17T19:00:00-04:00", venue: "BMO Field, Toronto", group: "L", status: "live", hs: 1, as: 0, minute: 0 },
-  { id: 13, home: "Uzbekistan", hf: "🇺🇿", away: "Colombia", af: "🇨🇴", kickoff: "2026-06-17T22:00:00-04:00", venue: "Estadio Azteca, Mexico City", group: "K", status: "upcoming", hs: 0, as: 0, hw: 25, d: 30, aw: 45 },
+  { id: 13, home: "Uzbekistan", hf: "🇺🇿", away: "Colombia", af: "🇨🇴", kickoff: "2026-06-17T22:00:00-04:00", venue: "Estadio Azteca, Mexico City", group: "K", status: "upcoming", hs: 1, as: 3, hw: 25, d: 30, aw: 45 },
 
   // ── Matchday 8 – Jun 18 ──
-  { id: 14, home: "Czechia", hf: "🇨🇿", away: "South Africa", af: "🇿🇦", kickoff: "2026-06-18T12:00:00-04:00", venue: "Mercedes-Benz Stadium, Atlanta", group: "A", status: "upcoming", hs: 0, as: 0, hw: 50, d: 28, aw: 22 },
-  { id: 15, home: "Switzerland", hf: "🇨🇭", away: "Bosnia and Herzegovina", af: "🇧🇦", kickoff: "2026-06-18T15:00:00-04:00", venue: "SoFi Stadium, Los Angeles", group: "B", status: "upcoming", hs: 0, as: 0, hw: 48, d: 28, aw: 24 },
-  { id: 16, home: "Canada", hf: "🇨🇦", away: "Qatar", af: "🇶🇦", kickoff: "2026-06-18T18:00:00-04:00", venue: "BC Place, Vancouver", group: "B", status: "upcoming", hs: 0, as: 0, hw: 60, d: 24, aw: 16 },
-  { id: 17, home: "Mexico", hf: "🇲🇽", away: "South Korea", af: "🇰🇷", kickoff: "2026-06-18T22:00:00-04:00", venue: "Estadio Guadalajara", group: "A", status: "upcoming", hs: 0, as: 0, hw: 45, d: 27, aw: 28 },
+  { id: 14, home: "Czechia", hf: "🇨🇿", away: "South Africa", af: "🇿🇦", kickoff: "2026-06-18T12:00:00-04:00", venue: "Mercedes-Benz Stadium, Atlanta", group: "A", status: "upcoming", hs: 1, as: 1, hw: 50, d: 28, aw: 22 },
+  { id: 15, home: "Switzerland", hf: "🇨🇭", away: "Bosnia and Herzegovina", af: "🇧🇦", kickoff: "2026-06-18T15:00:00-04:00", venue: "SoFi Stadium, Los Angeles", group: "B", status: "upcoming", hs: 4, as: 1, hw: 48, d: 28, aw: 24 },
+  { id: 16, home: "Canada", hf: "🇨🇦", away: "Qatar", af: "🇶🇦", kickoff: "2026-06-18T18:00:00-04:00", venue: "BC Place, Vancouver", group: "B", status: "upcoming", hs: 6, as: 0, hw: 60, d: 24, aw: 16 },
+  { id: 17, home: "Mexico", hf: "🇲🇽", away: "South Korea", af: "🇰🇷", kickoff: "2026-06-18T22:00:00-04:00", venue: "Estadio Guadalajara", group: "A", status: "upcoming", hs: 1, as: 0, hw: 45, d: 27, aw: 28 },
 
   // ── Matchday 9 – Jun 19 ──
-  { id: 18, home: "United States", hf: "🇺🇸", away: "Australia", af: "🇦🇺", kickoff: "2026-06-19T15:00:00-04:00", venue: "Lumen Field, Seattle", group: "D", status: "upcoming", hs: 0, as: 0, hw: 62, d: 22, aw: 16 },
-  { id: 19, home: "Scotland", hf: "🏴", away: "Morocco", af: "🇲🇦", kickoff: "2026-06-19T18:00:00-04:00", venue: "Gillette Stadium, Boston", group: "C", status: "upcoming", hs: 0, as: 0, hw: 28, d: 28, aw: 44 },
-  { id: 20, home: "Brazil", hf: "🇧🇷", away: "Haiti", af: "🇭🇹", kickoff: "2026-06-19T20:30:00-04:00", venue: "Lincoln Financial Field, Philadelphia", group: "C", status: "upcoming", hs: 0, as: 0, hw: 88, d: 8, aw: 4 },
-  { id: 21, home: "Türkiye", hf: "🇹🇷", away: "Paraguay", af: "🇵🇾", kickoff: "2026-06-20T00:00:00-04:00", venue: "Levi's Stadium, San Francisco", group: "D", status: "upcoming", hs: 0, as: 0, hw: 42, d: 30, aw: 28 },
+  { id: 18, home: "United States", hf: "🇺🇸", away: "Australia", af: "🇦🇺", kickoff: "2026-06-19T15:00:00-04:00", venue: "Lumen Field, Seattle", group: "D", status: "upcoming", hs: 2, as: 0, hw: 62, d: 22, aw: 16 },
+  { id: 19, home: "Scotland", hf: "🏴", away: "Morocco", af: "🇲🇦", kickoff: "2026-06-19T18:00:00-04:00", venue: "Gillette Stadium, Boston", group: "C", status: "upcoming", hs: 0, as: 1, hw: 28, d: 28, aw: 44 },
+  { id: 20, home: "Brazil", hf: "🇧🇷", away: "Haiti", af: "🇭🇹", kickoff: "2026-06-19T20:30:00-04:00", venue: "Lincoln Financial Field, Philadelphia", group: "C", status: "upcoming", hs: 3, as: 0, hw: 88, d: 8, aw: 4 },
+  { id: 21, home: "Türkiye", hf: "🇹🇷", away: "Paraguay", af: "🇵🇾", kickoff: "2026-06-20T00:00:00-04:00", venue: "Levi's Stadium, San Francisco", group: "D", status: "upcoming", hs: 0, as: 1, hw: 42, d: 30, aw: 28 },
 
   // ── Matchday 10 – Jun 20 ──
-  { id: 22, home: "Netherlands", hf: "🇳🇱", away: "Sweden", af: "🇸🇪", kickoff: "2026-06-20T13:00:00-04:00", venue: "NRG Stadium, Houston", group: "F", status: "upcoming", hs: 0, as: 0, hw: 55, d: 26, aw: 19 },
-  { id: 23, home: "Germany", hf: "🇩🇪", away: "Ivory Coast", af: "🇨🇮", kickoff: "2026-06-20T16:00:00-04:00", venue: "BMO Field, Toronto", group: "E", status: "upcoming", hs: 0, as: 0, hw: 70, d: 18, aw: 12 },
+  { id: 22, home: "Netherlands", hf: "🇳🇱", away: "Sweden", af: "🇸🇪", kickoff: "2026-06-20T13:00:00-04:00", venue: "NRG Stadium, Houston", group: "F", status: "upcoming", hs: 5, as: 1, hw: 55, d: 26, aw: 19 },
+  { id: 23, home: "Germany", hf: "🇩🇪", away: "Ivory Coast", af: "🇨🇮", kickoff: "2026-06-20T16:00:00-04:00", venue: "BMO Field, Toronto", group: "E", status: "upcoming", hs: 2, as: 1, hw: 70, d: 18, aw: 12 },
   { id: 24, home: "Ecuador", hf: "🇪🇨", away: "Curaçao", af: "🇨🇼", kickoff: "2026-06-20T20:00:00-04:00", venue: "Arrowhead Stadium, Kansas City", group: "E", status: "upcoming", hs: 0, as: 0, hw: 72, d: 18, aw: 10 },
-  { id: 25, home: "Tunisia", hf: "🇹🇳", away: "Japan", af: "🇯🇵", kickoff: "2026-06-20T23:00:00-04:00", venue: "Estadio BBVA, Monterrey", group: "F", status: "upcoming", hs: 0, as: 0, hw: 22, d: 26, aw: 52 },
+  { id: 25, home: "Tunisia", hf: "🇹🇳", away: "Japan", af: "🇯🇵", kickoff: "2026-06-20T23:00:00-04:00", venue: "Estadio BBVA, Monterrey", group: "F", status: "upcoming", hs: 0, as: 4, hw: 22, d: 26, aw: 52 },
 
   // ── Matchday 11 – Jun 21 ──
-  { id: 26, home: "Spain", hf: "🇪🇸", away: "Saudi Arabia", af: "🇸🇦", kickoff: "2026-06-21T12:00:00-04:00", venue: "Mercedes-Benz Stadium, Atlanta", group: "H", status: "upcoming", hs: 0, as: 0, hw: 82, d: 12, aw: 6 },
+  { id: 26, home: "Spain", hf: "🇪🇸", away: "Saudi Arabia", af: "🇸🇦", kickoff: "2026-06-21T12:00:00-04:00", venue: "Mercedes-Benz Stadium, Atlanta", group: "H", status: "upcoming", hs: 4, as: 0, hw: 82, d: 12, aw: 6 },
   { id: 27, home: "Belgium", hf: "🇧🇪", away: "Iran", af: "🇮🇷", kickoff: "2026-06-21T15:00:00-04:00", venue: "SoFi Stadium, Los Angeles", group: "G", status: "upcoming", hs: 0, as: 0, hw: 62, d: 22, aw: 16 },
-  { id: 28, home: "Uruguay", hf: "🇺🇾", away: "Cape Verde", af: "🇨🇻", kickoff: "2026-06-21T18:00:00-04:00", venue: "Hard Rock Stadium, Miami", group: "H", status: "upcoming", hs: 0, as: 0, hw: 72, d: 18, aw: 10 },
-  { id: 29, home: "New Zealand", hf: "🇳🇿", away: "Egypt", af: "🇪🇬", kickoff: "2026-06-21T21:00:00-04:00", venue: "BC Place, Vancouver", group: "G", status: "upcoming", hs: 0, as: 0, hw: 22, d: 26, aw: 52 },
+  { id: 28, home: "Uruguay", hf: "🇺🇾", away: "Cape Verde", af: "🇨🇻", kickoff: "2026-06-21T18:00:00-04:00", venue: "Hard Rock Stadium, Miami", group: "H", status: "upcoming", hs: 2, as: 2, hw: 72, d: 18, aw: 10 },
+  { id: 29, home: "New Zealand", hf: "🇳🇿", away: "Egypt", af: "🇪🇬", kickoff: "2026-06-21T21:00:00-04:00", venue: "BC Place, Vancouver", group: "G", status: "upcoming", hs: 1, as: 3, hw: 22, d: 26, aw: 52 },
 
   // ── Matchday 12 – Jun 22 ──
-  { id: 30, home: "Argentina", hf: "🇦🇷", away: "Austria", af: "🇦🇹", kickoff: "2026-06-22T13:00:00-04:00", venue: "AT&T Stadium, Dallas", group: "J", status: "upcoming", hs: 0, as: 0, hw: 58, d: 24, aw: 18 },
-  { id: 31, home: "France", hf: "🇫🇷", away: "Iraq", af: "🇮🇶", kickoff: "2026-06-22T17:00:00-04:00", venue: "Lincoln Financial Field, Philadelphia", group: "I", status: "upcoming", hs: 0, as: 0, hw: 78, d: 14, aw: 8 },
+  { id: 30, home: "Argentina", hf: "🇦🇷", away: "Austria", af: "🇦🇹", kickoff: "2026-06-22T13:00:00-04:00", venue: "AT&T Stadium, Dallas", group: "J", status: "upcoming", hs: 2, as: 0, hw: 58, d: 24, aw: 18 },
+  { id: 31, home: "France", hf: "🇫🇷", away: "Iraq", af: "🇮🇶", kickoff: "2026-06-22T17:00:00-04:00", venue: "Lincoln Financial Field, Philadelphia", group: "I", status: "upcoming", hs: 2, as: 0, hw: 78, d: 14, aw: 8 },
   { id: 32, home: "Norway", hf: "🇳🇴", away: "Senegal", af: "🇸🇳", kickoff: "2026-06-22T20:00:00-04:00", venue: "Gillette Stadium, Boston", group: "I", status: "upcoming", hs: 0, as: 0, hw: 45, d: 28, aw: 27 },
-  { id: 33, home: "Algeria", hf: "🇩🇿", away: "Argentina", af: "🇦🇷", kickoff: "2026-06-22T22:00:00-04:00", venue: "Hard Rock Stadium, Miami", group: "J", status: "upcoming", hs: 0, as: 0, hw: 15, d: 22, aw: 63 },
+  { id: 33, home: "Algeria", hf: "🇩🇿", away: "Argentina", af: "🇦🇷", kickoff: "2026-06-22T22:00:00-04:00", venue: "Hard Rock Stadium, Miami", group: "J", status: "upcoming", hs: 0, as: 3, hw: 15, d: 22, aw: 63 }
 ];
 
 // ──────────────────────────────────────────────
@@ -228,11 +228,11 @@ export const PREDICTIONS = [
 // ──────────────────────────────────────────────
 
 export const PLAYERS = [
-  { name: "Kylian Mbappé", country: "France", flag: "🇫🇷", goals: 0, assists: 3, matches: 4, minutes: 360, shots: 18, pass: 92, yc: 1 },
+  { name: "Kylian Mbappé", country: "France", flag: "🇫🇷", goals: 2, assists: 0, matches: 1, minutes: 90, shots: 18, pass: 92, yc: 1 },
   { name: "Jude Bellingham", country: "England", flag: "🏴", goals: 0, assists: 4, matches: 4, minutes: 360, shots: 14, pass: 89, yc: 0 },
   { name: "Vinícius Júnior", country: "Brazil", flag: "🇧🇷", goals: 1, assists: 2, matches: 4, minutes: 340, shots: 19, pass: 84, yc: 2 },
   { name: "Lamine Yamal", country: "Spain", flag: "🇪🇸", goals: 0, assists: 5, matches: 4, minutes: 355, shots: 12, pass: 91, yc: 0 },
-  { name: "Lionel Messi", country: "Argentina", flag: "🇦🇷", goals: 0, assists: 3, matches: 4, minutes: 320, shots: 11, pass: 90, yc: 0 },
+  { name: "Lionel Messi", country: "Argentina", flag: "🇦🇷", goals: 5, assists: 0, matches: 2, minutes: 320, shots: 11, pass: 90, yc: 0 },
   { name: "Erling Haaland", country: "Norway", flag: "🇳🇴", goals: 0, assists: 1, matches: 3, minutes: 270, shots: 16, pass: 78, yc: 1 },
   { name: "Cristiano Ronaldo", country: "Portugal", flag: "🇵🇹", goals: 0, assists: 0, matches: 3, minutes: 270, shots: 17, pass: 80, yc: 1 },
   { name: "Florian Wirtz", country: "Germany", flag: "🇩🇪", goals: 0, assists: 4, matches: 3, minutes: 265, shots: 9, pass: 93, yc: 0 },

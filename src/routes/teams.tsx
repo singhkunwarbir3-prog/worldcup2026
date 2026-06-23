@@ -16,10 +16,10 @@ export const Route = createFileRoute("/teams")({
 });
 
 const TEAM_DEEPDIVE = [
-  { name: "Spain", flag: "🇪🇸", scored: 6, conceded: 1, possession: 64, sheets: 1, xg: 4.8 },
-  { name: "France", flag: "🇫🇷", scored: 4, conceded: 2, possession: 58, sheets: 0, xg: 3.9 },
-  { name: "Argentina", flag: "🇦🇷", scored: 3, conceded: 1, possession: 56, sheets: 1, xg: 3.2 },
-  { name: "Brazil", flag: "🇧🇷", scored: 5, conceded: 1, possession: 62, sheets: 1, xg: 4.4 },
+  { name: "Spain", flag: "🇪🇸", scored: 4, conceded: 0, possession: 64, sheets: 1, xg: 4.8 },
+  { name: "France", flag: "🇫🇷", scored: 3, conceded: 1, possession: 58, sheets: 0, xg: 3.9 },
+  { name: "Argentina", flag: "🇦🇷", scored: 3, conceded: 0, possession: 56, sheets: 1, xg: 3.2 },
+  { name: "Brazil", flag: "🇧🇷", scored: 4, conceded: 1, possession: 62, sheets: 1, xg: 4.4 },
 ];
 
 function TeamsPage() {
